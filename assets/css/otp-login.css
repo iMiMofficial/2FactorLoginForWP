@@ -1,0 +1,256 @@
+/* ===== ULTRA-MINIMAL OTP LOGIN FORM (2024) ===== */
+
+.tflwp-form-container {
+  max-width: 380px;
+  margin: 32px auto;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+#tflwp-otp-form {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 28px 18px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-group label {
+  font-size: 15px;
+  font-weight: 600;
+  color: #181818;
+  margin-bottom: 2px;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  background: #fff;
+  border-radius: 6px;
+  border: 1px solid #bdbdbd;
+  overflow: hidden;
+  transition: border-color 0.18s;
+}
+.input-group:focus-within {
+  border-color: #0073aa;
+}
+
+.country-code-select, .country-code {
+  background: #f5f5f5;
+  color: #181818;
+  border: none;
+  font-size: 15px;
+  font-weight: 600;
+  min-width: 60px;
+  max-width: 60px;
+  padding: 0 8px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px 0 0 6px;
+  outline: none;
+  transition: background 0.18s, color 0.18s;
+}
+.country-code-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  cursor: pointer;
+  background-image: url('data:image/svg+xml;utf8,<svg fill="%236b7280" height="14" viewBox="0 0 20 20" width="14" xmlns="http://www.w3.org/2000/svg"><path d="M7.293 7.293a1 1 0 011.414 0L10 8.586l1.293-1.293a1 1 0 111.414 1.414l-2 2a1 1 0 01-1.414 0l-2-2a1 1 0 010-1.414z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 14px 14px;
+  padding-right: 5px;
+}
+.country-code-select:focus {
+  background: #e3f2fd;
+  color: #0073aa;
+}
+.country-code {
+  background: #f5f5f5;
+  color: #181818;
+}
+
+.input-group input[type="tel"] {
+  border: none;
+  background: transparent;
+  font-size: 15px;
+  font-weight: 500;
+  color: #181818;
+  padding: 0 12px;
+  height: 42px;
+  flex: 1 1 0%;
+  outline: none;
+  min-width: 0;
+}
+.input-group input[type="tel"]:focus {
+  background: #fff;
+}
+
+.form-group input {
+  padding: 12px 12px;
+  border: 1px solid #bdbdbd;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 500;
+  background: #fff;
+  color: #181818;
+  transition: border-color 0.18s;
+}
+.form-group input:focus {
+  border-color: #0073aa;
+  background: #fff;
+}
+.form-group input::placeholder {
+  color: #888;
+  font-weight: 400;
+}
+
+.btn {
+  padding: 14px 0;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 700;
+  background: #0073aa;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.18s, box-shadow 0.18s;
+  margin-top: 8px;
+  width: 100%;
+  letter-spacing: 0.01em;
+}
+.btn:hover, .btn:focus {
+  background: #005a87;
+}
+.btn:active {
+  background: #003d5c;
+}
+.btn:disabled {
+  background: #bdbdbd;
+  color: #fff;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.tflwp-message {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 8px;
+  border: 1px solid #bdbdbd;
+  background: #fafafa;
+  color: #0073aa;
+}
+.tflwp-message.success {
+  background: #e6f9ed;
+  color: #1a7f37;
+  border-color: #b7e4c7;
+}
+.tflwp-message.error {
+  background: #fbeaea;
+  color: #c0392b;
+  border-color: #f5c6cb;
+}
+
+.resend-otp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 0;
+  background: none;
+  border: none;
+}
+.tflwp-resend-btn {
+  background: none;
+  border: none;
+  color: #0073aa;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0 6px;
+  border-radius: 4px;
+  transition: background 0.18s, color 0.18s;
+}
+.tflwp-resend-btn:hover:not(:disabled) {
+  background: #e3f2fd;
+  color: #005a87;
+}
+.tflwp-resend-btn:disabled {
+  color: #bdbdbd;
+  cursor: not-allowed;
+}
+.tflwp-timer {
+  font-size: 13px;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Light background for input fields */
+.input-group, .form-group input, .input-group input[type="tel"], .country-code, .country-code-select {
+  background: #fff !important;
+  color: #181818 !important;
+}
+
+.input-group input[type="tel"]::placeholder,
+.form-group input::placeholder {
+  color: #888;
+}
+
+/* In dark mode, revert to dark backgrounds */
+@media (prefers-color-scheme: dark) {
+  #tflwp-otp-form {
+    background: #181a1b;
+    border-color: #23272f;
+  }
+  .form-group label {
+    color: #f3f4f6;
+  }
+  .form-group input, .input-group {
+    background: #181a1b;
+    color: #f3f4f6;
+    border-color: #23272f;
+  }
+  .input-group input[type="tel"] {
+    background: #181a1b;
+    color: #f3f4f6;
+  }
+  .country-code-select, .country-code {
+    background: #23272f;
+    color: #f3f4f6;
+  }
+  .btn {
+    background: #0073aa;
+    color: #fff;
+  }
+  .btn:hover, .btn:focus {
+    background: #005a87;
+  }
+  .tflwp-message {
+    background: #23272f;
+    color: #7ed6df;
+    border-color: #353b48;
+  }
+  .tflwp-message.success {
+    background: #1a3c2b;
+    color: #7bed9f;
+    border-color: #218c5a;
+  }
+  .tflwp-message.error {
+    background: #3b2323;
+    color: #ff7675;
+    border-color: #c0392b;
+  }
+} 
