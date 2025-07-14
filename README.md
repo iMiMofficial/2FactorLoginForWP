@@ -45,12 +45,14 @@
 ---
 
 ## 🖼 Screenshots
-> _Add your own screenshots below!_
 
-| Login Form | Admin Settings |
-|------------|---------------|
-| ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/screenshots/login-form.png) | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/screenshots/admin-settings.png) |
-
+| Screenshot | Preview |
+|------------|---------|
+| Login Form | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/2factor-screenshot-front-end.png) |
+| Admin API Settings | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/2factor-screenshot-admin-api-settings.png) |
+| Admin Customize | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/2factor-screenshot-admin-customize.png) |
+| Admin Shortcode | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/2factor-screenshot-admin-shortcode.png) |
+| Admin Advanced | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/2factor-screenshot-admin-advanced.png) |
 ---
 
 ## ⚙️ Admin Settings
