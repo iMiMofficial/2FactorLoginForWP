@@ -273,6 +273,9 @@ class TwoFactor_Login_WP {
         $roles = wp_roles()->roles;
         ?>
         <div class="wrap">
+            <div style="margin-bottom: 24px; text-align: center;">
+                <img src="<?php echo esc_url(TWOFACTOR_LOGIN_WP_URL . 'assets/img/logo.svg'); ?>" alt="2Factor Login for WP Logo" style="max-width:120px; height:auto; display:inline-block; margin-bottom: 8px;" />
+            </div>
             <h1><?php esc_html_e('2Factor Login for WP', '2factor-login-for-wp'); ?></h1>
             <!-- Tab Navigation -->
             <nav class="nav-tab-wrapper">
@@ -736,6 +739,9 @@ class TwoFactor_Login_WP {
         ob_start();
         ?>
         <div class="tflwp-form-container">
+            <div style="text-align:center; margin-bottom: 18px;">
+                <img src="<?php echo esc_url(TWOFACTOR_LOGIN_WP_URL . 'assets/img/logo.svg'); ?>" alt="2Factor Login for WP Logo" style="max-width:80px; height:auto; display:inline-block; margin-bottom: 6px;" />
+            </div>
             <form id="tflwp-otp-form" autocomplete="off">
                 <div class="tflwp-phone-section">
                     <div class="form-group">
