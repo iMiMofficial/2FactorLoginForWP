@@ -1,6 +1,6 @@
 <!-- Banner/Logo -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/logo.png" alt="2Factor Login for WP" width="200"/>
+  <img src="https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/logo.svg" alt="2Factor Login for WP" width="200"/>
 </p>
 
 <h1 align="center">2Factor Login for WP</h1>
