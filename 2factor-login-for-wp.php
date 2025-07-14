@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name: 2Factor Login for WP
- * Plugin URI: https://github.com/iMiMofficial/2factor-login-for-wp
+ * Plugin URI: https://github.com/iMiMofficial/2FactorLoginForWP
  * Description: Enable secure OTP-based login/signup for WordPress using 2Factor.in. Highly customizable, with onboarding fields and admin options. Unofficial plugin developed by Md Mim Akhtar.
  * Version: 1.0.0
  * Author: Md Mim Akhtar
