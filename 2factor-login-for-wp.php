@@ -271,18 +271,42 @@ class TwoFactor_Login_WP {
         if (!current_user_can('manage_options')) return;
         $settings = $this->get_plugin_settings();
         $roles = wp_roles()->roles;
+        $feedback_msg = '';
+        // Handle feedback form submission
+        if (isset($_POST['tflwp_feedback_nonce']) && wp_verify_nonce($_POST['tflwp_feedback_nonce'], 'tflwp_feedback')) {
+            $fb_name = isset($_POST['tflwp_fb_name']) ? sanitize_text_field(wp_unslash($_POST['tflwp_fb_name'])) : '';
+            $fb_email = isset($_POST['tflwp_fb_email']) ? sanitize_email(wp_unslash($_POST['tflwp_fb_email'])) : '';
+            $fb_msg = isset($_POST['tflwp_fb_message']) ? wp_strip_all_tags(wp_unslash($_POST['tflwp_fb_message'])) : '';
+            if (empty($fb_name) || empty($fb_email) || empty($fb_msg)) {
+                $feedback_msg = '<div class="notice notice-error"><p>' . esc_html__('All fields are required.', '2factor-login-for-wp') . '</p></div>';
+            } elseif (!is_email($fb_email)) {
+                $feedback_msg = '<div class="notice notice-error"><p>' . esc_html__('Please enter a valid email address.', '2factor-login-for-wp') . '</p></div>';
+            } else {
+                $subject = sprintf(esc_html__('2Factor.in Login for WP Feedback from %s', '2factor-login-for-wp'), $fb_name);
+                $body = esc_html__('Name:', '2factor-login-for-wp') . " $fb_name\n" . esc_html__('Email:', '2factor-login-for-wp') . " $fb_email\n" . esc_html__('Message:', '2factor-login-for-wp') . "\n$fb_msg";
+                $headers = ['Reply-To: ' . $fb_email];
+                $sent = wp_mail('dev@imimofficial.com', $subject, $body, $headers);
+                if ($sent) {
+                    $feedback_msg = '<div class="notice notice-success"><p>' . esc_html__('Thank you for your feedback!', '2factor-login-for-wp') . '</p></div>';
+                } else {
+                    $feedback_msg = '<div class="notice notice-error"><p>' . esc_html__('Failed to send feedback. Please try again later.', '2factor-login-for-wp') . '</p></div>';
+                }
+            }
+        }
         ?>
         <div class="wrap">
             <div style="margin-bottom: 24px; text-align: center;">
                 <img src="<?php echo esc_url(TWOFACTOR_LOGIN_WP_URL . 'assets/img/logo.svg'); ?>" alt="2Factor Login for WP Logo" style="max-width:120px; height:auto; display:inline-block; margin-bottom: 8px;" />
             </div>
             <h1><?php esc_html_e('2Factor Login for WP', '2factor-login-for-wp'); ?></h1>
+            <?php if (!empty($feedback_msg)) echo $feedback_msg; ?>
             <!-- Tab Navigation -->
             <nav class="nav-tab-wrapper">
                 <a href="#api-settings" class="nav-tab nav-tab-active"><?php esc_html_e('API Settings', '2factor-login-for-wp'); ?></a>
                 <a href="#customization" class="nav-tab"><?php esc_html_e('Customization', '2factor-login-for-wp'); ?></a>
                 <a href="#shortcode" class="nav-tab"><?php esc_html_e('Shortcode', '2factor-login-for-wp'); ?></a>
                 <a href="#advanced" class="nav-tab"><?php esc_html_e('Advanced', '2factor-login-for-wp'); ?></a>
+                <a href="#feedback" class="nav-tab"><?php esc_html_e('Feedback', '2factor-login-for-wp'); ?></a>
             </nav>
             <form method="post" action="options.php" id="tflwp-settings-form">
                 <?php
@@ -590,6 +614,31 @@ class TwoFactor_Login_WP {
                                 </td>
                     </tr>
                 </table>
+                    </div>
+                </div>
+                <!-- Feedback Tab -->
+                <div id="feedback" class="tab-content">
+                    <div class="tflwp-settings-section">
+                        <h2><?php esc_html_e('Send Feedback', '2factor-login-for-wp'); ?></h2>
+                        <p class="description"><?php esc_html_e('Have a suggestion, bug report, or question? Send your feedback to the developer.', '2factor-login-for-wp'); ?></p>
+                        <form method="post" action="">
+                            <?php wp_nonce_field('tflwp_feedback', 'tflwp_feedback_nonce'); ?>
+                            <table class="form-table">
+                                <tr>
+                                    <th scope="row"><label for="tflwp_fb_name"><?php esc_html_e('Your Name', '2factor-login-for-wp'); ?></label></th>
+                                    <td><input type="text" name="tflwp_fb_name" id="tflwp_fb_name" class="regular-text" required></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="tflwp_fb_email"><?php esc_html_e('Your Email', '2factor-login-for-wp'); ?></label></th>
+                                    <td><input type="email" name="tflwp_fb_email" id="tflwp_fb_email" class="regular-text" required></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row"><label for="tflwp_fb_message"><?php esc_html_e('Message', '2factor-login-for-wp'); ?></label></th>
+                                    <td><textarea name="tflwp_fb_message" id="tflwp_fb_message" rows="6" class="large-text" required></textarea></td>
+                                </tr>
+                            </table>
+                            <p><button type="submit" class="button button-primary"><?php esc_html_e('Send Feedback', '2factor-login-for-wp'); ?></button></p>
+                        </form>
                     </div>
                 </div>
                 <?php submit_button(); ?>
