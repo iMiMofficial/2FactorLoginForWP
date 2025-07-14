@@ -1,37 +1,55 @@
-=== 2Factor Login for WP ===
-Contributors: imimofficial
-Tags: otp, login, 2factor, phone, authentication, security
-Requires at least: 5.0
-Tested up to: 6.8
-Stable tag: 1.0.0
-License: GPLv2 or later
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+<!-- Banner/Logo -->
+<p align="center">
+  <img src="https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/img/logo.png" alt="2Factor Login for WP" width="200"/>
+</p>
 
-2Factor Login for WP is a modern, production-ready plugin for secure OTP-based login and signup using your 2Factor.in API. Highly customizable, AJAX-powered, and built for accessibility, security, and WordPress.org compliance.
+<h1 align="center">2Factor Login for WP</h1>
+
+<p align="center">
+  <b>Modern, secure OTP-based login & signup for WordPress</b><br/>
+  <a href="https://wordpress.org/plugins/2factor-login-for-wp/">WordPress.org</a> • <a href="https://github.com/iMiMofficial/2FactorLoginForWP">GitHub</a>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/WordPress-5.0%2B-blue"/>
+  <img src="https://img.shields.io/badge/Tested%20up%20to-6.8-brightgreen"/>
+  <img src="https://img.shields.io/badge/License-GPLv2%2B-blue"/>
+  <img src="https://img.shields.io/badge/Stable%20tag-1.0.0-blue"/>
+</p>
 
 ---
 
 ## ✨ Features
-- **OTP-based Authentication**: Secure login/signup with phone and OTP (no passwords needed)
-- **WordPress Integration**: Seamless user creation, login, and onboarding
-- **User Role Selection**: Assign any role (default: subscriber) to new users, with admin warning for privileged roles
-- **2Factor API**: Uses your 2Factor.in API key for SMS OTP delivery
-- **Dynamic Onboarding**: Collect email/name after OTP or both (admin configurable)
-- **Country Code Dropdown**: User can select country code (or use default)
-- **Privacy-Friendly Usernames**: Truncated phone + random code or full phone (admin option)
-- **Admin Settings**: 15+ configurable options, all in a modern tabbed UI
-- **Custom Redirect & CSS**: Set redirect after login and inject custom styles
-- **User Profile Integration**: Onboarding data (phone, name, email) visible/editable in admin
-- **Modern UI**: Responsive, accessible, and minimal design
-- **Security**: Rate limiting, brute force protection, OTP expiry, validation, and enumeration protection
-- **No test/debug code**: Production-ready, no sensitive data exposed
+- 🔐 **OTP-based Authentication**: Secure login/signup with phone and OTP (no passwords needed)
+- 🔄 **WordPress Integration**: Seamless user creation, login, and onboarding
+- 👤 **User Role Selection**: Assign any role (default: subscriber) to new users, with admin warning for privileged roles
+- 📲 **2Factor API**: Uses your 2Factor.in API key for SMS OTP delivery
+- 📝 **Dynamic Onboarding**: Collect email/name after OTP or both (admin configurable)
+- 🌍 **Country Code Dropdown**: User can select country code (or use default)
+- 🕵️‍♂️ **Privacy-Friendly Usernames**: Truncated phone + random code or full phone (admin option)
+- ⚙️ **Admin Settings**: 15+ configurable options, all in a modern tabbed UI
+- 🎨 **Custom Redirect & CSS**: Set redirect after login and inject custom styles
+- 🗂 **User Profile Integration**: Onboarding data (phone, name, email) visible/editable in admin
+- 💎 **Modern UI**: Responsive, accessible, and minimal design
+- 🛡 **Security**: Rate limiting, brute force protection, OTP expiry, validation, and enumeration protection
+- 🚫 **No test/debug code**: Production-ready, no sensitive data exposed
 
 ---
 
-## 🚀 Installation
-1. Upload or clone to `/wp-content/plugins/2factor-login-for-wp/`
-2. Activate **2Factor Login for WP** in your WordPress admin
-3. Go to **Settings → 2Factor Login** to configure
+## ⚡ Quick Start
+1. **Upload or clone** to `/wp-content/plugins/2factor-login-for-wp/`
+2. **Activate** in your WordPress admin
+3. **Configure** via <b>Settings → 2Factor Login</b>
+4. **Add** `[twofactor_login]` shortcode to any page/post
+
+---
+
+## 🖼 Screenshots
+> _Add your own screenshots below!_
+
+| Login Form | Admin Settings |
+|------------|---------------|
+| ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/screenshots/login-form.png) | ![](https://raw.githubusercontent.com/iMiMofficial/2FactorLoginForWP/main/assets/screenshots/admin-settings.png) |
 
 ---
 
@@ -68,47 +86,72 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 ---
 
 ## 🔒 Security & Best Practices
-- **Rate Limiting**: 1 OTP per minute per phone
-- **Brute Force Protection**: 3 attempts per OTP, plus IP-based lockout (5 minutes after 3 failed attempts)
-- **OTP Expiry**: Configurable (default 5 min)
-- **OTP Storage**: Transient with DB fallback for reliability
-- **Validation**: All fields validated and sanitized
-- **Nonce Verification**: All AJAX and form actions are nonce-protected
-- **Output Escaping**: All output is properly escaped
-- **SQL Injection Safe**: All queries use `$wpdb->prepare()` and `esc_sql()`
-- **User/Email Enumeration Protection**: Generic error messages for onboarding and user check
-- **No direct file operations**: Uses WP_Filesystem
-- **No debug/test code in production**
-- **No direct access to plugin files**
-- **No unnecessary files in release**
+- ⏱ **Rate Limiting**: 1 OTP per minute per phone
+- 🚫 **Brute Force Protection**: 3 attempts per OTP, plus IP-based lockout (5 minutes after 3 failed attempts)
+- ⏳ **OTP Expiry**: Configurable (default 5 min)
+- 💾 **OTP Storage**: Transient with DB fallback for reliability
+- 🧹 **Validation**: All fields validated and sanitized
+- 🛡 **Nonce Verification**: All AJAX and form actions are nonce-protected
+- 🧼 **Output Escaping**: All output is properly escaped
+- 🛡 **SQL Injection Safe**: All queries use `$wpdb->prepare()` and `esc_sql()`
+- 🕵️‍♂️ **User/Email Enumeration Protection**: Generic error messages for onboarding and user check
+- 📁 **No direct file operations**: Uses WP_Filesystem
+- 🚫 **No debug/test code in production**
+- 🚫 **No direct access to plugin files**
+- 🧹 **No unnecessary files in release**
 
 ---
 
 ## 💡 FAQ
-- **Does it support both login and signup?**
-  - Yes! If the phone exists, user logs in. If not, a new user is created.
-- **What if onboarding is disabled?**
-  - Username and email are auto-generated from the phone number.
-- **What about passwords?**
-  - Passwords are randomly generated and not shown to the user. Users log in with OTP.
-- **Can users set a password later?**
-  - Yes, via the default WordPress "Lost your password?" link or admin profile.
-- **Can I use this for WooCommerce or membership sites?**
-  - Yes, it works with any plugin that uses standard WordPress user accounts.
-- **Is it compatible with caching plugins?**
-  - Yes, OTPs are stored in transients with DB fallback for reliability.
-- **Is it GDPR compliant?**
-  - No personal data is sent to 2Factor.in except the phone number for OTP delivery. All data is stored in your WordPress site.
+<details>
+<summary>Does it support both login and signup?</summary>
+Yes! If the phone exists, user logs in. If not, a new user is created.
+</details>
+<details>
+<summary>What if onboarding is disabled?</summary>
+Username and email are auto-generated from the phone number.
+</details>
+<details>
+<summary>What about passwords?</summary>
+Passwords are randomly generated and not shown to the user. Users log in with OTP.
+</details>
+<details>
+<summary>Can users set a password later?</summary>
+Yes, via the default WordPress "Lost your password?" link or admin profile.
+</details>
+<details>
+<summary>Can I use this for WooCommerce or membership sites?</summary>
+Yes, it works with any plugin that uses standard WordPress user accounts.
+</details>
+<details>
+<summary>Is it compatible with caching plugins?</summary>
+Yes, OTPs are stored in transients with DB fallback for reliability.
+</details>
+<details>
+<summary>Is it GDPR compliant?</summary>
+No personal data is sent to 2Factor.in except the phone number for OTP delivery. All data is stored in your WordPress site.
+</details>
+
+---
+
+## 🤝 Contributing
+Pull requests, issues, and suggestions are welcome! For major changes, please open an issue first to discuss what you would like to change.
+
+1. Fork the repo
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
 ## 🙋‍♂️ Author & Support
-**Plugin Author:** Md Mim Akhtar  
-**Website:** [imimofficial.com](https://www.imimofficial.com)  
-**Support:** [@iMiMofficial on Patreon](https://www.patreon.com/iMiMofficial) • [BuyMeACoffee](https://www.buymeacoffee.com/imimofficial) • PayPal: [imimofficial](https://paypal.me/imimofficial)
-
-- Twitter: [@iMiMofficial](https://twitter.com/iMiMofficial)
-- GitHub: [iMiMofficial](https://github.com/iMiMofficial)
+<p align="center">
+  <b>Md Mim Akhtar</b><br/>
+  <a href="https://www.imimofficial.com">imimofficial.com</a><br/>
+  <a href="https://twitter.com/iMiMofficial">@iMiMofficial</a> • <a href="https://github.com/iMiMofficial">GitHub</a><br/>
+  <a href="https://www.patreon.com/iMiMofficial">Patreon</a> • <a href="https://www.buymeacoffee.com/imimofficial">BuyMeACoffee</a> • <a href="https://paypal.me/imimofficial">PayPal</a>
+</p>
 
 ---
 
