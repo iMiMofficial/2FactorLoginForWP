@@ -15,7 +15,7 @@
   <img src="https://img.shields.io/badge/Tested%20up%20to-6.8-brightgreen"/>
   <img src="https://img.shields.io/badge/License-GPLv2%2B-blue"/>
   <img src="https://img.shields.io/badge/Stable%20tag-1.0.0-blue"/>
-  <img src="https://img.shields.io/badge/Open%20Source-blue"/>
+  <img src="https://img.shields.io/badge/Open-Source-brightgreen"/>
 </p>
 
 ---
